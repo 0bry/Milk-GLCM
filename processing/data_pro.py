@@ -3,7 +3,6 @@ from PIL import Image, ImageOps
 import shutil
 
 def process_images(input_dir, output_dir, size=(1024, 1024)):
-    # Copy directory structure without files
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
     shutil.copytree(input_dir, output_dir, ignore=shutil.ignore_patterns("*.*"))
