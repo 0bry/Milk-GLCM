@@ -33,7 +33,6 @@ for class_name in os.listdir(dataset_path):
         else:
             img = img.astype('uint8')
 
-        # Compute GLCM with all distances and angles
         glcm = graycomatrix(
             img,
             distances=distances,
@@ -43,13 +42,11 @@ for class_name in os.listdir(dataset_path):
             normed=True
         )
 
-        # Initialize feature entry with class
         feature_entry = {'class': class_name}
 
-        # Calculate properties for each distance and angle
         properties = ['contrast', 'dissimilarity', 'homogeneity', 'energy', 'correlation']
         for prop in properties:
-            prop_matrix = graycoprops(glcm, prop)  # Shape (num_distances, num_angles)
+            prop_matrix = graycoprops(glcm, prop)  
             for d_idx, d in enumerate(distances):
                 for a_idx, a in enumerate(angles_deg):
                     key = f"{prop}_d{d}_a{a}"
@@ -57,7 +54,6 @@ for class_name in os.listdir(dataset_path):
 
         features.append(feature_entry)
 
-# Save to CSV
 df = pd.DataFrame(features)
 df.to_csv(output_path, index=False)
 print(f"Saved {len(df)} feature vectors to {output_path}")
