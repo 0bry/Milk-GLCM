@@ -8,15 +8,15 @@ import joblib
 import io
 import contextlib
 
-file_path = 'C:/Users/ASUS VivoBook/OneDrive/Desktop/project_milk/Milk-GLCM/ekstraksi_fitur/glcm_features2.csv'  # <---- PUT YOUR FILE PATH HERE
+file_path = 'seleksi_fitur\selected_glcm_features.csv'  
 data = pd.read_csv(file_path)
 
 X = data.drop('class', axis=1)
 y = data['class']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)  # Adjust test_size as needed
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)  
 
-model = RandomForestClassifier(n_estimators=100, random_state=42)  # You can tune hyperparameters like n_estimators
+model = RandomForestClassifier(n_estimators=100, random_state=42)  
 
 model.fit(X_train, y_train)
 

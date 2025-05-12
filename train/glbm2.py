@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import joblib
 import os
 
-input_csv = "C:/Users/ASUS VivoBook/OneDrive/Desktop/project_milk/Milk-GLCM/ekstraksi_fitur/glcm_features_ex.csv"
+input_csv = "seleksi_fitur\selected_glcm_features.csv"
 df = pd.read_csv(input_csv)
 
 X = df.drop(columns=['class'])  

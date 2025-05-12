@@ -9,7 +9,7 @@ from sklearn.decomposition import PCA
 import seaborn as sns
 import joblib
 
-df = pd.read_csv('C:/Users/ASUS VivoBook/OneDrive/Desktop/project_milk/Milk-GLCM/ekstraksi_fitur/glcm_features2.csv')
+df = pd.read_csv('seleksi_fitur\selected_glcm_features.csv')
 
 X = df.drop('class', axis=1)
 y = df['class']
